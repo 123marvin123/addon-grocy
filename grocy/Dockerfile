@@ -40,8 +40,7 @@ RUN \
     && git clone --branch "${GROCY_VERSION}" --depth=1 \
         https://github.com/grocy/grocy.git /var/www/grocy \
     \
-    && sed -i 's#https://world\.openfoodfacts\.org#https://de.openfoodfacts.org#g' /var/www/grocy/plugins/OpenFoodFactsBarcodeLookupPlugin.php \
-    && cd /var/www/grocy \
+    && cd /var/www/grocy && rm -rf plugins/OpenFoodFactsBarcodeLookupPlugin.php \
     \
     && composer install --no-dev \
     && yarn --production \
@@ -73,6 +72,7 @@ RUN \
 
 # Copy root filesystem
 COPY rootfs /
+COPY OpenFoodFactsBarcodeLookupPlugin.php /var/www/grocy/plugins/
 
 # Build arguments
 ARG BUILD_ARCH
