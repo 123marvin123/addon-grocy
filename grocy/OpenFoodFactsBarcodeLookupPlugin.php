@@ -48,7 +48,7 @@ class OpenFoodFactsBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
                                 $quId = $this->UserSettings['product_presets_qu_id'];
                         }
 
-                        $productName = $data['product']['product_name_de'] ?? $data['product']['product_name'];
+                        $productName = $data->product->product_name_de ?? $data->product->product_name;
 
 
                         return [
