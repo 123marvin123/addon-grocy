@@ -28,6 +28,7 @@ RUN \
         php82-simplexml=8.2.26-r0 \
         php82-tokenizer=8.2.26-r0 \
         php82=8.2.26-r0 \
+        sed \
     \
     && apk add --no-cache --virtual .build-dependencies \
         git=2.43.6-r0 \
@@ -39,6 +40,7 @@ RUN \
     && git clone --branch "${GROCY_VERSION}" --depth=1 \
         https://github.com/grocy/grocy.git /var/www/grocy \
     \
+    && sed -i 's#https://world\.openfoodfacts\.org#https://de.openfoodfacts.org#g' /var/www/grocy/plugins/OpenFoodFactsBarcodeLookupPlugin.php \
     && cd /var/www/grocy \
     \
     && composer install --no-dev \
