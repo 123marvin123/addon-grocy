@@ -13,7 +13,7 @@ class OpenFoodFactsBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
         protected function ExecuteLookup($barcode)
         {
                 $webClient = new Client(['http_errors' => false]);
-                $response = $webClient->request('GET', 'https://de.openfoodfacts.org/api/v2/product/' . preg_replace('/[^0-9]/', '', $barcode) . '?fields=product_name,image_url,product_name_de,image_url_de&lc=de&cc=de', ['headers' => ['User-Agent' => 'GrocyOpenFoodFactsBarcodeLookupPlugin/1.0 (https://grocy.info)']]);
+                $response = $webClient->request('GET', 'https://de.openfoodfacts.org/api/v2/product/' . preg_replace('/[^0-9]/', '', $barcode) . '?fields=product_name,image_url,product_name_de&lc=de&cc=de', ['headers' => ['User-Agent' => 'GrocyOpenFoodFactsBarcodeLookupPlugin/1.0 (https://grocy.info)']]);
                 $statusCode = $response->getStatusCode();
 
                 // Guzzle throws exceptions for connection errors, so nothing to do on that here
@@ -29,7 +29,7 @@ class OpenFoodFactsBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
                         $imageUrl = '';
                         if (isset($data->product->image_url) && !empty($data->product->image_url))
                         {
-                                $imageUrl = $data['product']['image_url_de'] ?? $data['product']['image_url'];
+                                $imageUrl = $data->product->image_url;
                         }
 
                         // Take the preset user setting or otherwise simply the first existing location
