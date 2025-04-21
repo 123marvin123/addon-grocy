@@ -37,8 +37,8 @@ RUN \
     \
     && yarn global add modclean \
     \
-    && git clone --branch "${GROCY_VERSION}" --depth=1 \
-        https://github.com/grocy/grocy.git /var/www/grocy \
+    && git clone --branch "master" --depth=1 \
+        https://github.com/123marvin123/grocy.git /var/www/grocy \
     \
     && cd /var/www/grocy && rm -rf plugins/OpenFoodFactsBarcodeLookupPlugin.php \
     \
