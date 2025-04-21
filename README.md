@@ -130,7 +130,7 @@ SOFTWARE.
 [i386-shield]: https://img.shields.io/badge/i386-no-red.svg
 [issue]: https://github.com/hassio-addons/addon-grocy/issues
 [license-shield]: https://img.shields.io/github/license/hassio-addons/addon-grocy.svg
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2024.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2025.svg
 [patreon-shield]: https://frenck.dev/wp-content/uploads/2019/12/patreon.png
 [patreon]: https://www.patreon.com/frenck
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-experimental-yellow.svg
